@@ -12,7 +12,7 @@ class Libro{
     }
 }
 
-class usuario{
+class Usuario{
     nombre:string;
     email:string;
     librosPrestado:Libro[]=[]
@@ -30,6 +30,14 @@ class usuario{
             console.log(`El usuario ${this.nombre}, pidio prestado el libro ${libro.titulo}`)
         }
 
+    }
+
+    devolverLibro(libro:Libro){
+        const resultado = this.librosPrestado.filter(elemento=> libro==elemento)
+        if(resultado.length>0){
+            libro.disponible= true
+            console.log(`${libro.titulo} ya lo devolvio ${this.nombre}`)
+        }
     }
 }
 
